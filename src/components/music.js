@@ -106,9 +106,7 @@ export default class Music extends React.Component {
                         <button onClick={() => this.handleDelete(id)} id="delete">Delete</button>
                     ) : null}
                   </div> 
-                   <iframe id={id} className="youtube"
-        width="1280" height="720"
-        src={"https://www.youtube.com/embed/" + ele.videoId + "?enablejsapi=1"}
+                   <iframe id={id} className="youtube" src={"https://www.youtube.com/embed/" + ele.videoId + "?enablejsapi=1"}
         frameBorder="0"></iframe>
                 </div>      
             )
