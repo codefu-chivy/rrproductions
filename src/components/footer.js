@@ -5,7 +5,7 @@ export default class Footer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            views: 0,
+            views: null,
             authenticated: false,
             adminView: null
         }
@@ -16,7 +16,7 @@ export default class Footer extends React.Component {
                 adminView: sessionStorage.getItem("loggedIn") ? <a onClick={this.handleLogout} href="/logout">Logout</a> : <Link id="admin" to="/login">Admin</Link>
             })
         }
-        fetch("/views", {
+        /*fetch("/views", {
             method: "get"
         }).then((res) => {
             return res.json();
@@ -33,7 +33,24 @@ export default class Footer extends React.Component {
                     views: json.data
                 });
             }
-        })
+        })*/
+        if (!localStorage.getItem("viewed")) {
+            console.log("hello");
+            fetch("/views", {
+                method: "get"
+            }).then((res) => {
+                return res.json();
+            }).then((json) => {
+                this.setState({
+                    views: json.data
+                });
+            });
+            localStorage.setItem("viewed", "true");
+        }
+        else if (localStorage.getItem("viewed")) {
+            console.log("bye");
+            return;
+        }
     };
     handleLogout = () => {
         sessionStorage.removeItem("loggedIn");
