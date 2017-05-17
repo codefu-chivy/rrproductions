@@ -27,24 +27,27 @@ export default class Music extends React.Component {
     handlePlay = (id, ele) => {
         $(".modal-cover").fadeIn();
         $("#" + id).fadeIn();
-        fetch("/video-views", {
-            method: "post",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({data: {id: id, name: ele.title}})
-        }).then((res) => {
-            return res.json();
-        }).then((json) => {
-            if (!json.data) {
-                return;
-            }
-            let newList = this.state.musicList.slice(0);
-            newList[id] = json.data;
-            this.setState({
-                musicList: newList
+        if (!localStorage.getItem(id.toString())) {
+            fetch("/video-views", {
+                method: "post",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({data: {id: id, name: ele.title}})
+            }).then((res) => {
+                return res.json();
+            }).then((json) => {
+                if (!json.data) {
+                    return;
+                }
+                let newList = this.state.musicList.slice(0);
+                newList[id] = json.data;
+                this.setState({
+                    musicList: newList
+                });
+                localStorage.setItem(id.toString(), "true");
             });
-        });  
+        }  
     };
     handleHide = () => {
         $(".modal-cover").fadeOut();
