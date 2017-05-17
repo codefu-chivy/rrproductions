@@ -101,16 +101,10 @@ app.get("/render-music", (req, res) => {
 
 app.post("/video-views", jsonParser, (req, res) => {
     Music.findOne({title: req.body.data.name}, (err, obj) => {
-        if (obj.views.ip.indexOf(req.ip) === -1) {
             obj.views.num++;
-            obj.views.ip.push(req.ip);
             obj.markModified("views");
             obj.save();
             res.json({data: obj});
-        }
-        else {
-            res.json({data: false})
-        }
     });
 });
 
