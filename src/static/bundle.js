@@ -84,28 +84,18 @@
 
 	var _login2 = _interopRequireDefault(_login);
 
+	var _routes = __webpack_require__(249);
+
+	var _routes2 = _interopRequireDefault(_routes);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	//import {Router} from "react-stormpath";
 	_reactDom2.default.render(_react2.default.createElement(
 	  _reactRouter.Router,
 	  { history: _reactRouter.browserHistory },
-	  _react2.default.createElement(
-	    _reactRouter.Route,
-	    { path: "/", component: _master2.default },
-	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _home2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: "/about", component: _about2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: "/music", component: _music2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: "/gallery", component: _gallery2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: "/events", component: _events2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: "/login", component: _login2.default })
-	  )
+	  _routes2.default
 	), document.getElementById("app-container"));
-
-	/*<Route path="/" component={MasterPage}>
-	    <IndexRoute component={Home}/>
-	  </Route>*/
-
-	//import {Router} from "react-stormpath";
 
 /***/ },
 /* 1 */
@@ -26703,7 +26693,7 @@
 	                        { className: "not-logo" },
 	                        _react2.default.createElement(
 	                            _reactRouter.Link,
-	                            { className: "nav-link", to: "/about" },
+	                            { className: "menu nav-link", to: "/about" },
 	                            "ABOUT"
 	                        )
 	                    ),
@@ -26712,7 +26702,7 @@
 	                        { className: "not-logo" },
 	                        _react2.default.createElement(
 	                            _reactRouter.Link,
-	                            { className: "nav-link", to: "/music" },
+	                            { className: "menu nav-link", to: "/music" },
 	                            "MUSIC"
 	                        )
 	                    ),
@@ -26721,7 +26711,7 @@
 	                        { className: "not-logo" },
 	                        _react2.default.createElement(
 	                            _reactRouter.Link,
-	                            { className: "nav-link", to: "/gallery" },
+	                            { className: "menu nav-link", to: "/gallery" },
 	                            "GALLERY"
 	                        )
 	                    ),
@@ -26730,7 +26720,7 @@
 	                        { className: "not-logo" },
 	                        _react2.default.createElement(
 	                            _reactRouter.Link,
-	                            { className: "nav-link", to: "/events" },
+	                            { className: "menu nav-link", to: "/events" },
 	                            "EVENTS"
 	                        )
 	                    ),
@@ -26739,8 +26729,17 @@
 	                        { className: "not-logo" },
 	                        _react2.default.createElement(
 	                            _reactRouter.Link,
-	                            { className: "nav-link", to: "/faq" },
+	                            { className: "menu nav-link", to: "/faq" },
 	                            "FAQ"
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        "li",
+	                        { className: "not-logo" },
+	                        _react2.default.createElement(
+	                            "button",
+	                            { id: "col-button", className: "btn collapse" },
+	                            "MENU"
 	                        )
 	                    )
 	                )
@@ -26793,12 +26792,122 @@
 
 	    var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
 
-	    _this.componentWillMount = function () {
-	      if (sessionStorage.getItem("loggedIn")) {
-	        console.log(true);
-	      } else {
-	        console.log(false);
-	      }
+	    _this.componentDidMount = function () {
+	      var unauthBody = _react2.default.createElement(
+	        "div",
+	        null,
+	        _react2.default.createElement(
+	          "h2",
+	          { id: "slogan" },
+	          "We Produce Your Future"
+	        ),
+	        _react2.default.createElement(
+	          "h3",
+	          { id: "placeholder" },
+	          "Placeholder Video"
+	        ),
+	        _react2.default.createElement(
+	          "video",
+	          { controls: true },
+	          _react2.default.createElement("source", { src: "/static/videos/placeholder.mp4" })
+	        ),
+	        _react2.default.createElement(
+	          "div",
+	          { id: "rev-container" },
+	          _react2.default.createElement(
+	            "h3",
+	            { id: "reviews" },
+	            "Reviews"
+	          ),
+	          _react2.default.createElement(
+	            "div",
+	            { id: "reviews-container" },
+	            _react2.default.createElement(
+	              "p",
+	              null,
+	              "There are no reviews"
+	            )
+	          )
+	        )
+	      );
+	      _this.setState({
+	        body: sessionStorage.getItem("loggedIn") ? _react2.default.createElement(
+	          "div",
+	          { className: "admin-body" },
+	          _react2.default.createElement(
+	            "div",
+	            { className: "edit-music" },
+	            _react2.default.createElement(
+	              "h2",
+	              null,
+	              "Edit Music"
+	            ),
+	            _react2.default.createElement(
+	              "h4",
+	              null,
+	              "Title"
+	            ),
+	            _react2.default.createElement("input", { className: "music-up", type: "text", id: "title", placeholder: "Enter song title", required: true }),
+	            _react2.default.createElement(
+	              "h4",
+	              null,
+	              "Artist Name"
+	            ),
+	            _react2.default.createElement("input", { className: "music-up", type: "text", id: "artist-name", placeholder: "Enter artist name", required: true }),
+	            _react2.default.createElement(
+	              "h4",
+	              null,
+	              "Genre"
+	            ),
+	            _react2.default.createElement("input", { className: "music-up", type: "text", id: "genre", placeholder: "Genre", required: true }),
+	            _react2.default.createElement(
+	              "h4",
+	              null,
+	              "Price"
+	            ),
+	            _react2.default.createElement("input", { className: "music-up", type: "text", id: "price", placeholder: "Price", required: true }),
+	            _react2.default.createElement(
+	              "h4",
+	              null,
+	              "Video ID"
+	            ),
+	            _react2.default.createElement("input", { className: "music-up", type: "text", id: "video-id", placeholder: "Video ID, e.g., d1eaQrxA6ZE", required: true }),
+	            _react2.default.createElement("br", null),
+	            _react2.default.createElement(
+	              "button",
+	              { className: "update", onClick: _this.handleMusicUpdate },
+	              "Update Music"
+	            )
+	          ),
+	          _react2.default.createElement(
+	            "div",
+	            { className: "edit-events" },
+	            _react2.default.createElement(
+	              "h2",
+	              null,
+	              "Edit Events"
+	            ),
+	            _react2.default.createElement(
+	              "h4",
+	              null,
+	              "Location"
+	            ),
+	            _react2.default.createElement("input", { className: "event-up", type: "text", id: "location", placeholder: "Enter location", required: true }),
+	            _react2.default.createElement(
+	              "h4",
+	              null,
+	              "Description"
+	            ),
+	            _react2.default.createElement("textarea", { className: "event-up", id: "description", required: true }),
+	            _react2.default.createElement("br", null),
+	            _react2.default.createElement(
+	              "button",
+	              { className: "update", onClick: _this.handleEventsUpdate },
+	              "Update Events"
+	            )
+	          )
+	        ) : unauthBody
+	      });
 	    };
 
 	    _this.handleMusicUpdate = function () {
@@ -26863,120 +26972,15 @@
 	      });
 	    };
 
+	    _this.state = {
+	      body: null
+	    };
 	    return _this;
 	  }
 
 	  _createClass(Home, [{
 	    key: "render",
 	    value: function render() {
-	      var unauthBody = _react2.default.createElement(
-	        "div",
-	        null,
-	        _react2.default.createElement(
-	          "h2",
-	          { id: "slogan" },
-	          "We Produce Your Future"
-	        ),
-	        _react2.default.createElement(
-	          "video",
-	          { controls: true },
-	          _react2.default.createElement("source", { src: "/static/videos/placeholder.mp4" })
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { id: "rev-container" },
-	          _react2.default.createElement(
-	            "h3",
-	            { id: "reviews" },
-	            "Reviews"
-	          ),
-	          _react2.default.createElement(
-	            "div",
-	            { id: "reviews-container" },
-	            _react2.default.createElement(
-	              "p",
-	              null,
-	              "There are no reviews"
-	            )
-	          )
-	        )
-	      );
-	      var body = sessionStorage.getItem("loggedIn") ? _react2.default.createElement(
-	        "div",
-	        { className: "admin-body" },
-	        _react2.default.createElement(
-	          "div",
-	          { className: "edit-music" },
-	          _react2.default.createElement(
-	            "h2",
-	            null,
-	            "Edit Music"
-	          ),
-	          _react2.default.createElement(
-	            "h4",
-	            null,
-	            "Title"
-	          ),
-	          _react2.default.createElement("input", { className: "music-up", type: "text", id: "title", placeholder: "Enter song title", required: true }),
-	          _react2.default.createElement(
-	            "h4",
-	            null,
-	            "Artist Name"
-	          ),
-	          _react2.default.createElement("input", { className: "music-up", type: "text", id: "artist-name", placeholder: "Enter artist name", required: true }),
-	          _react2.default.createElement(
-	            "h4",
-	            null,
-	            "Genre"
-	          ),
-	          _react2.default.createElement("input", { className: "music-up", type: "text", id: "genre", placeholder: "Genre", required: true }),
-	          _react2.default.createElement(
-	            "h4",
-	            null,
-	            "Price"
-	          ),
-	          _react2.default.createElement("input", { className: "music-up", type: "text", id: "price", placeholder: "Price", required: true }),
-	          _react2.default.createElement(
-	            "h4",
-	            null,
-	            "Video ID"
-	          ),
-	          _react2.default.createElement("input", { className: "music-up", type: "text", id: "video-id", placeholder: "Video ID, e.g., d1eaQrxA6ZE", required: true }),
-	          _react2.default.createElement("br", null),
-	          _react2.default.createElement(
-	            "button",
-	            { className: "update", onClick: this.handleMusicUpdate },
-	            "Update Music"
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "edit-events" },
-	          _react2.default.createElement(
-	            "h2",
-	            null,
-	            "Edit Events"
-	          ),
-	          _react2.default.createElement(
-	            "h4",
-	            null,
-	            "Location"
-	          ),
-	          _react2.default.createElement("input", { className: "event-up", type: "text", id: "location", placeholder: "Enter location", required: true }),
-	          _react2.default.createElement(
-	            "h4",
-	            null,
-	            "Description"
-	          ),
-	          _react2.default.createElement("textarea", { className: "event-up", id: "description", required: true }),
-	          _react2.default.createElement("br", null),
-	          _react2.default.createElement(
-	            "button",
-	            { className: "update", onClick: this.handleEventsUpdate },
-	            "Update Events"
-	          )
-	        )
-	      ) : unauthBody;
 	      return _react2.default.createElement(
 	        "div",
 	        { id: "home-container" },
@@ -26987,7 +26991,7 @@
 	          _react2.default.createElement(
 	            "div",
 	            { className: "body" },
-	            body
+	            this.state.body
 	          )
 	        ),
 	        _react2.default.createElement(_footer2.default, null)
@@ -27978,6 +27982,8 @@
 	    value: true
 	});
 
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
@@ -28003,6 +28009,19 @@
 	        var _this = _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).call(this, props));
 
 	        _this.componentDidMount = function () {
+	            if ((typeof window === "undefined" ? "undefined" : _typeof(window)) !== undefined) {
+	                _this.setState({
+	                    adminView: sessionStorage.getItem("loggedIn") ? _react2.default.createElement(
+	                        "a",
+	                        { onClick: _this.handleLogout, href: "/logout" },
+	                        "Logout"
+	                    ) : _react2.default.createElement(
+	                        _reactRouter.Link,
+	                        { id: "admin", to: "/login" },
+	                        "Admin"
+	                    )
+	                });
+	            }
 	            fetch("/views", {
 	                method: "get"
 	            }).then(function (res) {
@@ -28028,7 +28047,8 @@
 
 	        _this.state = {
 	            views: 0,
-	            authenticated: false
+	            authenticated: false,
+	            adminView: null
 	        };
 	        return _this;
 	    }
@@ -28066,15 +28086,7 @@
 	                _react2.default.createElement(
 	                    "div",
 	                    { className: "misc" },
-	                    sessionStorage.getItem("loggedIn") ? _react2.default.createElement(
-	                        "a",
-	                        { onClick: this.handleLogout, href: "/logout" },
-	                        "Logout"
-	                    ) : _react2.default.createElement(
-	                        _reactRouter.Link,
-	                        { id: "admin", to: "/login" },
-	                        "Admin"
-	                    ),
+	                    this.state.adminView,
 	                    _react2.default.createElement(
 	                        "h6",
 	                        { id: "credits" },
@@ -28207,7 +28219,7 @@
 	          ),
 	          _react2.default.createElement(
 	            "div",
-	            { id: "about1" },
+	            { className: "about1" },
 	            _react2.default.createElement("img", { className: "not-found", src: "/static/images/noimagefound.jpg" }),
 	            _react2.default.createElement(
 	              "p",
@@ -28227,7 +28239,7 @@
 	          ),
 	          _react2.default.createElement(
 	            "div",
-	            { id: "about1" },
+	            { className: "about1" },
 	            _react2.default.createElement("img", { className: "not-found", src: "/static/images/noimagefound.jpg" }),
 	            _react2.default.createElement(
 	              "p",
@@ -28242,8 +28254,8 @@
 	          ),
 	          _react2.default.createElement(
 	            "div",
-	            { id: "about1" },
-	            _react2.default.createElement("img", { className: "team-pic", src: "/static/images/155.jpg" }),
+	            { className: "about1" },
+	            _react2.default.createElement("img", { className: "not-found", src: "/static/images/noimagefound.jpg" }),
 	            _react2.default.createElement(
 	              "p",
 	              { className: "bio" },
@@ -28432,7 +28444,7 @@
 	                                { className: "purchase", onClick: function onClick() {
 	                                        return _this2.handlePurchase(ele);
 	                                    } },
-	                                "Purchase for ",
+	                                "Purchase Audio for ",
 	                                ele.price
 	                            )
 	                        ),
@@ -28632,7 +28644,7 @@
 	            }).then(function (res) {
 	                return res.json();
 	            }).then(function (json) {
-	                console.log(document.getElementById("paypal-button"), json);
+	                console.log(json.data.sandbox, json.data.prod);
 	                paypal.Button.render({
 	                    env: "production",
 	                    style: {
@@ -28857,7 +28869,14 @@
 	            args[_key] = arguments[_key];
 	        }
 
-	        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Events.__proto__ || Object.getPrototypeOf(Events)).call.apply(_ref, [this].concat(args))), _this), _this.handleHide = function () {
+	        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Events.__proto__ || Object.getPrototypeOf(Events)).call.apply(_ref, [this].concat(args))), _this), _this.componentDidMount = function () {
+	            $("body").one("mouseover", function () {
+	                setTimeout(function () {
+	                    $(".modal-cover").fadeIn();
+	                    $("#subscribe").fadeIn();
+	                }, 500);
+	            });
+	        }, _this.handleHide = function () {
 	            $(".modal-cover").hide();
 	            $("#subscribe").fadeOut("fast");
 	        }, _this.handleSubscribe = function () {
@@ -28884,12 +28903,6 @@
 	    _createClass(Events, [{
 	        key: "render",
 	        value: function render() {
-	            $("body").one("mouseover", function () {
-	                setTimeout(function () {
-	                    $(".modal-cover").fadeIn();
-	                    $("#subscribe").fadeIn();
-	                }, 5000);
-	            });
 	            return _react2.default.createElement(
 	                "div",
 	                null,
@@ -29090,6 +29103,59 @@
 
 	exports.default = Login;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(236)))
+
+/***/ },
+/* 249 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(178);
+
+	var _master = __webpack_require__(233);
+
+	var _master2 = _interopRequireDefault(_master);
+
+	var _home = __webpack_require__(235);
+
+	var _home2 = _interopRequireDefault(_home);
+
+	var _about = __webpack_require__(242);
+
+	var _about2 = _interopRequireDefault(_about);
+
+	var _music = __webpack_require__(243);
+
+	var _music2 = _interopRequireDefault(_music);
+
+	var _gallery = __webpack_require__(246);
+
+	var _gallery2 = _interopRequireDefault(_gallery);
+
+	var _events = __webpack_require__(247);
+
+	var _events2 = _interopRequireDefault(_events);
+
+	var _login = __webpack_require__(248);
+
+	var _login2 = _interopRequireDefault(_login);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	module.exports = _react2.default.createElement(
+	  _reactRouter.Route,
+	  { path: "/", component: _master2.default },
+	  _react2.default.createElement(_reactRouter.IndexRoute, { component: _home2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: "/about", component: _about2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: "/music", component: _music2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: "/gallery", component: _gallery2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: "/events", component: _events2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: "/login", component: _login2.default })
+	);
 
 /***/ }
 /******/ ]);
