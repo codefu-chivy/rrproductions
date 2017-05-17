@@ -9,21 +9,12 @@ import Music from "./components/music";
 import Gallery from "./components/gallery";
 import Events from "./components/events";
 import Login from "./components/login";
+import routes from "./routes";
 
 
 ReactDOM.render(
     <Router history={browserHistory}>
-      <Route path="/" component={MasterPage}>
-        <IndexRoute component={Home}/>
-        <Route path="/about" component={About}/>
-        <Route path="/music" component={Music}/>
-        <Route path="/gallery" component={Gallery}/>
-        <Route path="/events" component={Events}/>
-        <Route path="/login" component={Login}/>
-      </Route>
+      {routes}
     </Router>, 
     document.getElementById("app-container"));
 
-    /*<Route path="/" component={MasterPage}>
-        <IndexRoute component={Home}/>
-      </Route>*/
