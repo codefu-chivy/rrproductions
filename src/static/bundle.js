@@ -28488,9 +28488,7 @@
 	                                "Delete"
 	                            ) : null
 	                        ),
-	                        _react2.default.createElement("iframe", { id: id, className: "youtube",
-	                            width: "1280", height: "720",
-	                            src: "https://www.youtube.com/embed/" + ele.videoId + "?enablejsapi=1",
+	                        _react2.default.createElement("iframe", { id: id, className: "youtube", src: "https://www.youtube.com/embed/" + ele.videoId + "?enablejsapi=1",
 	                            frameBorder: "0" })
 	                    );
 	                }) : loading;
