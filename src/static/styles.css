@@ -46,10 +46,10 @@ html {
 }
 
 /*Home Page Styles: navbar*/
-/*@keyframes underline {
-  from {border-bottom: 2px;}
-  to {border-bottom: 6px;}
-}*/
+.collapse {
+    visibility: hidden;
+    display: none;
+}
 #nav-logo {
     width: 100px;
     height: 50px;
@@ -196,7 +196,7 @@ li {
 }
 
 /*About Page*/
-#about1 {
+.about1 {
     width: 800px;
     margin: 0px auto;
     padding: 15px;
@@ -251,7 +251,6 @@ li {
 }
 .music-info {
     text-align: left;
-    /*margin-bottom: 60px;*/
     position: relative;
     left: 40px;
     float: left;
@@ -265,6 +264,8 @@ li {
     background-color: dodgerblue;
     color: white;
     box-shadow: 2px 2px darkgray;
+    position: relative;
+    bottom: 20px;
 }
 .purchase:hover {
     background-color: green;
@@ -399,7 +400,7 @@ li {
     border-radius: 3px;
     border: 1px solid silver;
 }
-.update, #login-button {
+.update, #login-button, #col-button {
     width: 200px;
     height: 40px;
     margin-top: 20px;
@@ -410,7 +411,7 @@ li {
     font-weight: bold;
     border: 3px solid black;
 }
-.update:hover, #login-button:hover {
+.update:hover, #login-button:hover, #col-button:hover {
     background-color: black;
     color: white;
     cursor: pointer;
@@ -440,4 +441,119 @@ li {
 }
 #invalid {
     color: red;
+}
+/*Media Queries*/
+@media screen and (max-width: 1120px) {
+    #navbar, ul {
+        height: auto;
+    }
+    .not-logo {
+        margin: 10px;
+        position: relative;
+        top: -10px;
+        left: -20px;
+    }
+    #logo {
+        float: none;
+        /*position: static;*/
+        display: block;
+        margin-bottom: 0px;
+    }
+}
+@media screen and (max-width: 960px) {
+    #home-productions {
+        font-size: 60px;
+        bottom: 50px;
+    }
+    #home-logo {
+        width: 200px;
+        height: 200px;
+        position: relative;
+        top: 30px;
+    }
+    #photo-container, .about1, #events-container, #list-container {
+        width: 85%;
+    }
+}
+@media screen and (max-width: 788px) {
+    #home-productions {
+        font-size: 50px;
+        bottom: 10px;
+    }
+    #home-logo {
+        width: 160px;
+        height: 160px;
+        top: 60px;
+    }
+    .about1 {
+        margin-bottom: 40px;
+        height: auto;
+    }
+    .not-found {
+        width: 150px;
+        height: 150px;
+    }
+}
+@media screen and (max-width: 639px) {
+    #home-productions {
+        display: none;
+    }
+    #home-logo {
+        width: 230px;
+        height: 230px;
+        top: 30px;
+        left: 30px;
+    }
+    .music-info {
+        left: 10px;
+    }
+    .thumb {
+        width: 150px;
+        height: 100px;
+    }
+    .purchase {
+        width: 150px;
+    }
+    .music-cont {
+        width: 100%;
+        margin: 10px auto;
+    }
+    .img-cont {
+        width: 150px;
+    }
+    .title {
+        font-size: 17px;
+    }
+    .video-head:not(.title) {
+        font-size: 13px;
+    }
+    .purchase {
+        height: 45px;
+    }
+    .play-video {
+        left: 50px;
+        top: -50px;
+    }
+    #search-music {
+        width: 75%;
+    }
+}
+@media screen and (max-width: 430px) {
+    .nav-link {
+        visibility: hidden;
+        display: none;
+    }
+    .nav-link-expand {
+        visibility: visible;
+        display: initial;
+    }
+    li {
+        display: block;
+    }
+    #list-container {
+        width: 95%;
+    }
+    #home-logo {
+        top: 60px;
+    }
 }
