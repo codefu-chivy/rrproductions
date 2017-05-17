@@ -14,10 +14,19 @@ const passport = require("passport");
 const Strategy = require("passport-local").Strategy;
 const Events = require("./database/events-model");
 const nodemailer = require("nodemailer");
+const React = require("react");
+const ReactDOM = require("react-dom");
+const {match, RouterContext} = require("react-router");
+const {renderToString} = require("react-dom/server");
+require('babel-core/register')({
+    presets: ['es2015', 'react', "stage-0"]
+});
+const routes = require("./routes");
 
 dbconnection();
 require("dotenv").config({path: "./src/paypal.env"});
 
+app.set("view engine", "ejs")
 app.use("/static", express.static(path.join(__dirname, "static")));
 app.use(require('cookie-parser')());
 app.use(jsonParser);
@@ -59,9 +68,9 @@ passport.deserializeUser(function(id, cb) {
   });
 });
 
-app.get("/", (req, res) => {
+/*app.get("/", (req, res) => {
     res.sendFile(__dirname + "/static/index.html");
-});
+});*/
 
 app.get("/views", (req, res) => {
     Views.findOne({}, (err, viewArr) => {
@@ -228,6 +237,29 @@ app.post("/delete", (req, res) => {
         res.json({data: list});
     })
 })
+
+app.get('*', (req, res) => {
+  match(
+    { routes, location: req.url },
+    (err, redirectLocation, renderProps) => {
+      if (err) {
+        return res.status(500).send(err.message);
+      }
+      if (redirectLocation) {
+        return res.redirect(302, redirectLocation.pathname + redirectLocation.search);
+      }
+      let markup;
+      if (renderProps) {
+        markup = renderToString(React.createElement(RouterContext, renderProps));
+      } 
+      else {
+        //markup = renderToString(<NotFoundPage/>);
+        res.status(404);
+      }
+      return res.render("index", {markup});
+    }
+  );
+});
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
