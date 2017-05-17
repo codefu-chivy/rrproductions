@@ -35,7 +35,6 @@ export default class Footer extends React.Component {
             }
         })*/
         if (!localStorage.getItem("viewed")) {
-            console.log("hello");
             fetch("/views", {
                 method: "get"
             }).then((res) => {
@@ -44,11 +43,14 @@ export default class Footer extends React.Component {
                 this.setState({
                     views: json.data
                 });
+                localStorage.setItem("viewed", "true");
+                localStorage.setItem("views", json.data.toString());
             });
-            localStorage.setItem("viewed", "true");
         }
         else if (localStorage.getItem("viewed")) {
-            console.log("bye");
+            this.setState({
+                views: Number(localStorage.getItem("views"))
+            })
             return;
         }
     };
