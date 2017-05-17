@@ -76,26 +76,19 @@ app.get("/views", (req, res) => {
     Views.findOne({}, (err, viewArr) => {
         if (!viewArr) {
             let view = new Views({
-                views: 0,
-                ip: []
+                views: 0
             });
             view.save((err) => {
                 if (err) {
                     throw err;
                 }
+                res.json({data: 0});
             });
         }
         else {
-            if (viewArr.ip.indexOf(req.ip) !== -1) {
-                res.json({data: false});
-            }
-            else {
-                viewArr.ip.push(req.ip);
-                viewArr.views++;
-                viewArr.markModified("ip");
-                viewArr.save();
-                res.json({data: viewArr.views});
-            }
+            viewArr.views++;
+            viewArr.save();
+            res.json({data: viewArr.views});
         }
     })
 });
