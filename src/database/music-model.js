@@ -6,7 +6,6 @@ let musicSchema = new Schema({
     artName: String,
     views: {
         num: Number,
-        ip: Array
     },
     genre: String,
     date: String,
