@@ -28041,7 +28041,6 @@
 	                }
 	            })*/
 	            if (!localStorage.getItem("viewed")) {
-	                console.log("hello");
 	                fetch("/views", {
 	                    method: "get"
 	                }).then(function (res) {
@@ -28050,10 +28049,13 @@
 	                    _this.setState({
 	                        views: json.data
 	                    });
+	                    localStorage.setItem("viewed", "true");
+	                    localStorage.setItem("views", json.data.toString());
 	                });
-	                localStorage.setItem("viewed", "true");
 	            } else if (localStorage.getItem("viewed")) {
-	                console.log("bye");
+	                _this.setState({
+	                    views: Number(localStorage.getItem("views"))
+	                });
 	                return;
 	            }
 	        };
@@ -28353,24 +28355,27 @@
 	        _this.handlePlay = function (id, ele) {
 	            $(".modal-cover").fadeIn();
 	            $("#" + id).fadeIn();
-	            fetch("/video-views", {
-	                method: "post",
-	                headers: {
-	                    "Content-Type": "application/json"
-	                },
-	                body: JSON.stringify({ data: { id: id, name: ele.title } })
-	            }).then(function (res) {
-	                return res.json();
-	            }).then(function (json) {
-	                if (!json.data) {
-	                    return;
-	                }
-	                var newList = _this.state.musicList.slice(0);
-	                newList[id] = json.data;
-	                _this.setState({
-	                    musicList: newList
+	            if (!localStorage.getItem(id.toString())) {
+	                fetch("/video-views", {
+	                    method: "post",
+	                    headers: {
+	                        "Content-Type": "application/json"
+	                    },
+	                    body: JSON.stringify({ data: { id: id, name: ele.title } })
+	                }).then(function (res) {
+	                    return res.json();
+	                }).then(function (json) {
+	                    if (!json.data) {
+	                        return;
+	                    }
+	                    var newList = _this.state.musicList.slice(0);
+	                    newList[id] = json.data;
+	                    _this.setState({
+	                        musicList: newList
+	                    });
+	                    localStorage.setItem(id.toString(), "true");
 	                });
-	            });
+	            }
 	        };
 
 	        _this.handleHide = function () {
