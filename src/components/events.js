@@ -3,10 +3,18 @@ import Banner from "./banner";
 import Footer from "./footer";
 
 export default class Events extends React.Component {
+    componentDidMount = () => {
+        $("body").one("mouseover", () => {
+            setTimeout(() => {
+                $(".modal-cover").fadeIn();
+                $("#subscribe").fadeIn();
+            }, 500)
+        });
+    };
     handleHide = () => {
         $(".modal-cover").hide();
         $("#subscribe").fadeOut("fast");
-    }
+    };
     handleSubscribe = () => {
         fetch("/subscribe", {
             method: "post",
@@ -29,12 +37,6 @@ export default class Events extends React.Component {
         })
     }
     render() {
-        $("body").one("mouseover", () => {
-            setTimeout(() => {
-                $(".modal-cover").fadeIn();
-                $("#subscribe").fadeIn();
-            }, 5000)
-        })
         return (
             <div>
               <Banner/>

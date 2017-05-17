@@ -6,10 +6,16 @@ export default class Footer extends React.Component {
         super(props);
         this.state = {
             views: 0,
-            authenticated: false
+            authenticated: false,
+            adminView: null
         }
     }
     componentDidMount = () => {
+        if (typeof(window) !== undefined) {
+            this.setState({
+                adminView: sessionStorage.getItem("loggedIn") ? <a onClick={this.handleLogout} href="/logout">Logout</a> : <Link id="admin" to="/login">Admin</Link>
+            })
+        }
         fetch("/views", {
             method: "get"
         }).then((res) => {
@@ -45,7 +51,7 @@ export default class Footer extends React.Component {
                 <img className="icon" src="/static/images/youtube.png"/>
               </div>
               <div className="misc">
-                {sessionStorage.getItem("loggedIn") ? <a onClick={this.handleLogout} href="/logout">Logout</a> : <Link id="admin" to="/login">Admin</Link>}
+                {this.state.adminView}
                 <h6 id="credits">Designed by Chival Trotman</h6>
               </div>
             </div>    
