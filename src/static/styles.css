@@ -225,6 +225,10 @@ li {
 .loading {
     height: 800px;
 }
+.youtube {
+    width: 800px;
+    height: 600px;
+}
 #list-container {
     width: 800px;
     margin: 0px auto;
@@ -295,7 +299,7 @@ li {
     position: absolute;
     display: none;
     z-index: 15;
-    right: -280px;
+    right: 0px;
     top: 15%;
 }
 #search-music {
@@ -474,6 +478,11 @@ li {
     #photo-container, .about1, #events-container, #list-container {
         width: 85%;
     }
+    .youtube {
+        width: 400px;
+        height: 200px;
+        right: 100px;
+    }
 }
 @media screen and (max-width: 788px) {
     #home-productions {
@@ -536,6 +545,15 @@ li {
     }
     #search-music {
         width: 75%;
+    }
+    .youtube {
+        right: 30px;
+    }
+}
+@media screen and (max-width: 480px) {
+    .youtube {
+        width: 250px;
+        height: 150px;
     }
 }
 @media screen and (max-width: 430px) {
