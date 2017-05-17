@@ -28022,23 +28022,40 @@
 	                    )
 	                });
 	            }
-	            fetch("/views", {
+	            /*fetch("/views", {
 	                method: "get"
-	            }).then(function (res) {
+	            }).then((res) => {
 	                return res.json();
-	            }).then(function (json) {
-	                if (!json.data) {
-	                    _this.setState({
+	            }).then((json) => {
+	                if(!json.data) {
+	                    this.setState({
 	                        views: 1
-	                    }, function () {
+	                    }, () => {
 	                        return;
 	                    });
-	                } else {
-	                    _this.setState({
+	                }
+	                else {
+	                    this.setState({
 	                        views: json.data
 	                    });
 	                }
-	            });
+	            })*/
+	            if (!localStorage.getItem("viewed")) {
+	                console.log("hello");
+	                fetch("/views", {
+	                    method: "get"
+	                }).then(function (res) {
+	                    return res.json();
+	                }).then(function (json) {
+	                    _this.setState({
+	                        views: json.data
+	                    });
+	                });
+	                localStorage.setItem("viewed", "true");
+	            } else if (localStorage.getItem("viewed")) {
+	                console.log("bye");
+	                return;
+	            }
 	        };
 
 	        _this.handleLogout = function () {
@@ -28046,7 +28063,7 @@
 	        };
 
 	        _this.state = {
-	            views: 0,
+	            views: null,
 	            authenticated: false,
 	            adminView: null
 	        };
