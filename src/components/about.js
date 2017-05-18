@@ -12,12 +12,16 @@ export default class About extends React.Component {
               <Banner/>
               <div className="body">
                 <h1 className="about-rr">About Us</h1>
+                <div className="about1 rr-description">
+                  <p className="bio rr-bio">At RR Productions, we are dedicated to producing quality music. Check out our music page, and if you like what you hear, you can purchase our tunes for a great price. In the near future we will be offering album and single production, so be on the lookout for site updates!</p>
+                </div>
+                <h1 className="about-rr">The Team</h1>
+                <h2>Ralph Rookwood</h2>
                 <div className="about1">
                   <img className="not-found" src="/static/images/noimagefound.jpg"/>
                   <p className="bio">My name is Ralph Rookwood and I'm a music producer from Brooklyn, New York. I love to create and arrange music to put smiles and joy onto people's faces. I'm a very simple and understanding type of guy and hope you will feel
                   comfortable with me and my team as we produce great and refreshing music for you.</p>
                 </div>
-                <h1 className="about-rr">The Team</h1>
                 <h2>Siahh</h2>
                 <div className="about1">
                   <img className="not-found" src="/static/images/noimagefound.jpg"/>
