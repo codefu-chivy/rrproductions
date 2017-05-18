@@ -26808,7 +26808,7 @@
 	        ),
 	        _react2.default.createElement(
 	          "video",
-	          { controls: true },
+	          { id: "home-video", preload: "none", controls: true },
 	          _react2.default.createElement("source", { src: "/static/videos/placeholder.mp4" })
 	        ),
 	        _react2.default.createElement(
@@ -28350,6 +28350,12 @@
 	                    musicList: json.data
 	                });
 	            });
+	            if (_this.state.showReturn) {
+	                _this.setState({
+	                    showReturn: false,
+	                    payment: null
+	                });
+	            }
 	        };
 
 	        _this.handlePlay = function (id, ele) {
@@ -28385,7 +28391,8 @@
 
 	        _this.search = function (json) {
 	            _this.setState({
-	                musicList: json.data
+	                musicList: json.data,
+	                showReturn: true
 	            });
 	        };
 
@@ -28394,7 +28401,7 @@
 	            _this.setState({
 	                musicList: false,
 	                payment: payment,
-	                showSearch: false
+	                showReturn: true
 	            });
 	        };
 
@@ -28417,7 +28424,8 @@
 	        _this.state = {
 	            musicList: null,
 	            payment: null,
-	            showSearch: true
+	            showSearch: true,
+	            showReturn: false
 	        };
 	        return _this;
 	    }
@@ -28523,7 +28531,12 @@
 	                    "div",
 	                    { className: "body" },
 	                    _react2.default.createElement("div", { className: "modal-cover", onClick: this.handleHide }),
-	                    this.state.showSearch ? _react2.default.createElement(_search2.default, { search: this.search }) : null,
+	                    _react2.default.createElement(_search2.default, { search: this.search }),
+	                    this.state.showReturn ? _react2.default.createElement(
+	                        "button",
+	                        { id: "return", onClick: this.componentDidMount },
+	                        "Return"
+	                    ) : null,
 	                    _react2.default.createElement(
 	                        "div",
 	                        { id: "list-container" },
@@ -28664,7 +28677,6 @@
 	            }).then(function (res) {
 	                return res.json();
 	            }).then(function (json) {
-	                console.log(json.data.sandbox, json.data.prod);
 	                paypal.Button.render({
 	                    env: "production",
 	                    style: {
