@@ -148,6 +148,7 @@ li {
     font-family: "Josefin Sans";
     letter-spacing: 6px;
     font-size: 50px;
+    margin-top: 15px;
 }
 #home-productions {
     font-weight: bold;
@@ -492,6 +493,9 @@ li {
     }
 }
 @media screen and (max-width: 788px) {
+    #email-form {
+        width: 95%;
+    }
     #home-productions {
         font-size: 50px;
         bottom: 10px;
