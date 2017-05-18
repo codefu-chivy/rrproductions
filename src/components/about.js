@@ -26,7 +26,7 @@ export default class About extends React.Component {
                 <h2>Nick</h2>
                 <div className="about1">
                   <img className="not-found" src="/static/images/noimagefound.jpg"/>
-                  <p className="bio">Hey everyone, I'm a composer and musician from West Babylon, New York, and I have a passion for creating great music. The music I create reflects a fusion of several genres, most importantly jazz, electronic, and rock. I believe that good music serves a higher purpose that not only includes engaging the mind but healing the soul and it's my hope that my creations can do that for you.</p>
+                  <p className="bio">Hey everyone, I'm a composer and musician from New York, and I have a passion for creating great music. The music I create reflects a fusion of several genres, most importantly jazz, electronic, and rock. I believe that good music serves a higher purpose that not only includes engaging the mind but healing the soul and it's my hope that my creations can do that for you.</p>
                 </div>  
               </div>
               <Footer/>
