@@ -47,8 +47,8 @@ html {
 
 /*Home Page Styles: navbar*/
 #home-video {
-    width: 800px;
-    height: 600px;
+    width: 600px;
+    height: 400px;
 }
 .collapse {
     visibility: hidden;
@@ -556,6 +556,13 @@ li {
     .youtube {
         right: 30px;
     }
+    #home-video {
+        width: 95%;
+        height: auto;
+    }
+    #slogan {
+        margin-bottom: 50px;
+    }
 }
 @media screen and (max-width: 480px) {
     .youtube {
@@ -564,6 +571,10 @@ li {
     }
 }
 @media screen and (max-width: 430px) {
+    #col-button {
+        position: relative;
+        right: 15px;
+    }
     .nav-link {
         visibility: hidden;
         display: none;
