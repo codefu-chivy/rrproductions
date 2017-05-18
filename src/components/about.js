@@ -14,7 +14,7 @@ export default class About extends React.Component {
                 <h1 className="about-rr">About Us</h1>
                 <div className="about1">
                   <img className="not-found" src="/static/images/noimagefound.jpg"/>
-                  <p className="bio">My name is double r and I'm a music producer from Brooklyn, New York. I love to create and arrange music to put smiles and joy onto people's faces. I'm a very simple and understanding type of guy and hope you will feel
+                  <p className="bio">My name is Ralph Rookwood and I'm a music producer from Brooklyn, New York. I love to create and arrange music to put smiles and joy onto people's faces. I'm a very simple and understanding type of guy and hope you will feel
                   comfortable with me and my team as we produce great and refreshing music for you.</p>
                 </div>
                 <h1 className="about-rr">The Team</h1>
