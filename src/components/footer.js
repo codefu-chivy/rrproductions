@@ -36,7 +36,11 @@ export default class Footer extends React.Component {
         })*/
         if (!localStorage.getItem("viewed")) {
             fetch("/views", {
-                method: "get"
+                method: "post",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({data: true})
             }).then((res) => {
                 return res.json();
             }).then((json) => {
@@ -44,10 +48,22 @@ export default class Footer extends React.Component {
                     views: json.data
                 });
                 localStorage.setItem("viewed", "true");
-                localStorage.setItem("views", json.data.toString());
             });
         }
         else if (localStorage.getItem("viewed")) {
+            fetch("/views", {
+                method: "post",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({data: false})
+            }).then((res) => {
+                return res.json();
+            }).then((json) => {
+                this.setState({
+                    views: json.data
+                });
+            });
             this.setState({
                 views: Number(localStorage.getItem("views"))
             })
