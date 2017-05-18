@@ -13,7 +13,6 @@ export default class Payment extends React.Component {
         }).then((res) => {
             return res.json();
         }).then((json) => {
-            console.log(json.data.sandbox, json.data.prod)
             paypal.Button.render({
             env: "production",
             style: {
