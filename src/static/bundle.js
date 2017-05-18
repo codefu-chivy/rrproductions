@@ -28245,6 +28245,25 @@
 	          ),
 	          _react2.default.createElement(
 	            "div",
+	            { className: "about1 rr-description" },
+	            _react2.default.createElement(
+	              "p",
+	              { className: "bio rr-bio" },
+	              "At RR Productions, we are dedicated to producing quality music. Check out our music page, and if you like what you hear, you can purchase our tunes for a great price. In the near future we will be offering album and single production, so be on the lookout for site updates!"
+	            )
+	          ),
+	          _react2.default.createElement(
+	            "h1",
+	            { className: "about-rr" },
+	            "The Team"
+	          ),
+	          _react2.default.createElement(
+	            "h2",
+	            null,
+	            "Ralph Rookwood"
+	          ),
+	          _react2.default.createElement(
+	            "div",
 	            { className: "about1" },
 	            _react2.default.createElement("img", { className: "not-found", src: "/static/images/noimagefound.jpg" }),
 	            _react2.default.createElement(
@@ -28252,11 +28271,6 @@
 	              { className: "bio" },
 	              "My name is Ralph Rookwood and I'm a music producer from Brooklyn, New York. I love to create and arrange music to put smiles and joy onto people's faces. I'm a very simple and understanding type of guy and hope you will feel comfortable with me and my team as we produce great and refreshing music for you."
 	            )
-	          ),
-	          _react2.default.createElement(
-	            "h1",
-	            { className: "about-rr" },
-	            "The Team"
 	          ),
 	          _react2.default.createElement(
 	            "h2",
