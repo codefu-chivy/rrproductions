@@ -10,7 +10,8 @@ export default class Music extends React.Component {
         this.state = {
             musicList: null,
             payment: null,
-            showSearch: true
+            showSearch: true, 
+            showReturn: false
         }
     }
     componentDidMount = () => {
@@ -23,6 +24,12 @@ export default class Music extends React.Component {
                 musicList: json.data
             });
         });
+        if (this.state.showReturn) {
+            this.setState({
+                showReturn: false,
+                payment: null
+            });
+        }
     };
     handlePlay = (id, ele) => {
         $(".modal-cover").fadeIn();
@@ -55,7 +62,8 @@ export default class Music extends React.Component {
     };
     search = (json) => {
         this.setState({
-            musicList: json.data
+            musicList: json.data,
+            showReturn: true
         });
     };
     handlePurchase = (ele) => {
@@ -63,7 +71,7 @@ export default class Music extends React.Component {
         this.setState({
             musicList: false,
             payment: payment,
-            showSearch: false
+            showReturn: true
         });
     };
     handleDelete = (id) => {
@@ -120,7 +128,8 @@ export default class Music extends React.Component {
               <Banner/>
               <div className="body">
               <div className="modal-cover" onClick={this.handleHide}></div>
-                {this.state.showSearch ? <Search search={this.search}/> : null}
+                <Search search={this.search}/>
+                {this.state.showReturn ? <button id="return" onClick={this.componentDidMount}>Return</button> : null}
                 <div id="list-container">
                   {list}
                   {this.state.payment}
