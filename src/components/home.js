@@ -14,7 +14,7 @@ export default class Home extends React.Component {
         <div>
           <h2 id="slogan">We Produce Your Future</h2> 
           <h3 id="placeholder">Placeholder Video</h3>
-          <video id="home-video" preload="none" controls><source src="/static/videos/placeholder.mp4"/></video>
+          <video id="home-video" preload="meta" controls><source src="/static/videos/placeholder.mp4"/></video>
           <div id="rev-container">
             <h3 id="reviews">Reviews</h3>
             <div id="reviews-container">
