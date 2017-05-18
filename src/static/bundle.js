@@ -26808,7 +26808,7 @@
 	        ),
 	        _react2.default.createElement(
 	          "video",
-	          { id: "home-video", preload: "none", controls: true },
+	          { id: "home-video", preload: "meta", controls: true },
 	          _react2.default.createElement("source", { src: "/static/videos/placeholder.mp4" })
 	        ),
 	        _react2.default.createElement(
