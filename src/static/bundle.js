@@ -26728,15 +26728,6 @@
 	                        "li",
 	                        { className: "not-logo" },
 	                        _react2.default.createElement(
-	                            _reactRouter.Link,
-	                            { className: "menu nav-link", to: "/faq" },
-	                            "FAQ"
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        "li",
-	                        { className: "not-logo" },
-	                        _react2.default.createElement(
 	                            "button",
 	                            { id: "col-button", className: "btn collapse" },
 	                            "MENU"
