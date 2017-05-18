@@ -72,7 +72,7 @@ passport.deserializeUser(function(id, cb) {
     res.sendFile(__dirname + "/static/index.html");
 });*/
 
-app.get("/views", (req, res) => {
+app.post("/views", (req, res) => {
     Views.findOne({}, (err, viewArr) => {
         if (!viewArr) {
             let view = new Views({
@@ -86,9 +86,14 @@ app.get("/views", (req, res) => {
             });
         }
         else {
-            viewArr.views++;
-            viewArr.save();
-            res.json({data: viewArr.views});
+            if (!req.body.data) {
+                res.json({data: viewArr.views});
+            }
+            else if (req.body.data) {
+                viewArr.views++;
+                viewArr.save();
+                res.json({data: viewArr.views});
+            }
         }
     })
 });
