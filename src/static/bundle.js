@@ -28495,7 +28495,7 @@
 	                                { className: "purchase", onClick: function onClick() {
 	                                        return _this2.handlePurchase(ele);
 	                                    } },
-	                                "Purchase Audio for ",
+	                                "Purchase Audio for $",
 	                                ele.price
 	                            )
 	                        ),
