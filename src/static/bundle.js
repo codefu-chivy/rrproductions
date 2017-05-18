@@ -28033,7 +28033,11 @@
 	            })*/
 	            if (!localStorage.getItem("viewed")) {
 	                fetch("/views", {
-	                    method: "get"
+	                    method: "post",
+	                    headers: {
+	                        "Content-Type": "application/json"
+	                    },
+	                    body: JSON.stringify({ data: true })
 	                }).then(function (res) {
 	                    return res.json();
 	                }).then(function (json) {
@@ -28041,9 +28045,21 @@
 	                        views: json.data
 	                    });
 	                    localStorage.setItem("viewed", "true");
-	                    localStorage.setItem("views", json.data.toString());
 	                });
 	            } else if (localStorage.getItem("viewed")) {
+	                fetch("/views", {
+	                    method: "post",
+	                    headers: {
+	                        "Content-Type": "application/json"
+	                    },
+	                    body: JSON.stringify({ data: false })
+	                }).then(function (res) {
+	                    return res.json();
+	                }).then(function (json) {
+	                    _this.setState({
+	                        views: json.data
+	                    });
+	                });
 	                _this.setState({
 	                    views: Number(localStorage.getItem("views"))
 	                });
@@ -28234,7 +28250,7 @@
 	            _react2.default.createElement(
 	              "p",
 	              { className: "bio" },
-	              "My name is double r and I'm a music producer from Brooklyn, New York. I love to create and arrange music to put smiles and joy onto people's faces. I'm a very simple and understanding type of guy and hope you will feel comfortable with me and my team as we produce great and refreshing music for you."
+	              "My name is Ralph Rookwood and I'm a music producer from Brooklyn, New York. I love to create and arrange music to put smiles and joy onto people's faces. I'm a very simple and understanding type of guy and hope you will feel comfortable with me and my team as we produce great and refreshing music for you."
 	            )
 	          ),
 	          _react2.default.createElement(
