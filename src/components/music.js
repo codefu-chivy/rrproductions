@@ -105,7 +105,7 @@ export default class Music extends React.Component {
                   <div className="img-cont">
                     <img className="thumb" src={ele.thumbnail}/>
                     <img onClick={(e) => this.handlePlay(id, ele)} className="play-video" src="/static/images/play-video.png"/>
-                    <button className="purchase" onClick={() => this.handlePurchase(ele)}>Purchase Audio for {ele.price}</button>
+                    <button className="purchase" onClick={() => this.handlePurchase(ele)}>Purchase Audio for ${ele.price}</button>
                   </div>
                   <div className="music-info">
                     <h3 className="title video-head">{ele.title}</h3>
