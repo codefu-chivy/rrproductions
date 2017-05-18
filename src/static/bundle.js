@@ -28276,7 +28276,7 @@
 	          _react2.default.createElement(
 	            "h2",
 	            null,
-	            "Chival"
+	            "Nick"
 	          ),
 	          _react2.default.createElement(
 	            "div",
