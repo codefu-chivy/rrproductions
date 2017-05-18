@@ -572,7 +572,7 @@ li {
         height: auto;
     }
     #slogan {
-        margin-bottom: 50px;
+        margin-top: 25px;
     }
 }
 @media screen and (max-width: 480px) {
