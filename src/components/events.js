@@ -27,11 +27,14 @@ export default class Events extends React.Component {
         }).then((json) => {
             if (!json.data) {
                 alert("You're already on our emailing list!");
+                document.getElementById("email-form").value = "";
             }
             else if (json.data === "invalid") {
                 alert("Invalid email address!");
+                document.getElementById("email-form").value = "";
             }
             else {
+                document.getElementById("email-form").value = "";
                 return;   
             }
         })
