@@ -28104,7 +28104,11 @@
 	                        { id: "social" },
 	                        "Social Media"
 	                    ),
-	                    _react2.default.createElement("img", { className: "icon", src: "/static/images/instagram.png" }),
+	                    _react2.default.createElement(
+	                        "a",
+	                        { href: "https://www.instagram.com/officialdoublerr7/", target: "_blank" },
+	                        _react2.default.createElement("img", { className: "icon", src: "/static/images/instagram.png" })
+	                    ),
 	                    _react2.default.createElement("img", { className: "icon", src: "/static/images/twitter.png" }),
 	                    _react2.default.createElement("img", { className: "icon", src: "/static/images/facebook.png" }),
 	                    _react2.default.createElement("img", { className: "icon", src: "/static/images/youtube.png" })
@@ -28290,7 +28294,7 @@
 	          _react2.default.createElement(
 	            "h2",
 	            null,
-	            "Nick"
+	            "Chival Trotman"
 	          ),
 	          _react2.default.createElement(
 	            "div",
