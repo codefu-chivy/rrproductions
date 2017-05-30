@@ -20,6 +20,10 @@ module.exports = {
     new webpack.ProvidePlugin({
       "fetch": "imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch",
       "Promise": "promise-polyfill"
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      include: /\.min\.js$/,
+      minimize: true
     })
   ]
 }  
