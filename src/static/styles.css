@@ -161,7 +161,7 @@ li {
     left: 15px;
     letter-spacing: 8px;
     margin-top: -200px;
-    text-shadow: 2px 2px dimgrey;
+    /*text-shadow: 2px 2px white;*/
 }
 .body {
     background-color: lavenderblush;
