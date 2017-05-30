@@ -18,6 +18,7 @@ const React = require("react");
 const ReactDOM = require("react-dom");
 const {match, RouterContext} = require("react-router");
 const {renderToString} = require("react-dom/server");
+const compression = require("compression");
 require('babel-core/register')({
     presets: ['es2015', 'react', "stage-0"]
 });
@@ -30,6 +31,7 @@ app.set("view engine", "ejs")
 app.use("/static", express.static(path.join(__dirname, "static")));
 app.use(require('cookie-parser')());
 app.use(jsonParser);
+app.use(compression());
 
 passport.use(new Strategy(
   function(username, password, done) {
