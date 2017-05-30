@@ -21,6 +21,11 @@ module.exports = {
       "fetch": "imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch",
       "Promise": "promise-polyfill"
     }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    }),
     new webpack.optimize.UglifyJsPlugin({
       include: /\.min\.js$/,
       minimize: true
