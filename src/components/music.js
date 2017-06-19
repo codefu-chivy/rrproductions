@@ -99,7 +99,7 @@ export default class Music extends React.Component {
             list = <div className="loading"><h1>No Results</h1></div>
         }
         else {
-            list = this.state.musicList ? this.state.musicList.map((ele, id) => {
+            list = this.state.musicList ? this.state.musicList.reverse().map((ele, id) => {
             return (
                 <div key={id} className="music-cont">
                   <div className="img-cont">

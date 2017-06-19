@@ -12,13 +12,11 @@ export default class Home extends React.Component {
     componentDidMount = () => {
         let unauthBody = (
         <div>
-          <h2 id="slogan">We Produce Your Future</h2> 
-          <h3 id="placeholder">Placeholder Video</h3>
-          <video id="home-video" preload="meta" controls><source src="/static/videos/placeholder.mp4"/></video>
-          <div id="rev-container">
-            <h3 id="reviews">Reviews</h3>
-            <div id="reviews-container">
-              <p>There are no reviews</p>
+          <div id="rr-home">
+            <div id="feat-container">
+              <h2 id="slogan">We Produce Your Future</h2> 
+              <h3 id="featured-title">Featured Song</h3>
+              <iframe id="featured" src="https://www.youtube.com/embed/rNID1nPb40Y?enablejsapi=1" frameBorder="0" width="700" height="500"></iframe>
             </div>
           </div> 
         </div>

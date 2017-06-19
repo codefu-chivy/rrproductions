@@ -15,6 +15,7 @@ export default class Payment extends React.Component {
         }).then((json) => {
             paypal.Button.render({
             env: "production",
+            commit: true,
             style: {
               label: 'checkout', 
               size:  'small',    
@@ -27,7 +28,6 @@ export default class Payment extends React.Component {
             },
             payment: function() {
             // Make a client-side call to the REST api to create the payment
-
             return paypal.rest.payment.create(this.props.env, this.props.client, {
                 transactions: [
                     {
