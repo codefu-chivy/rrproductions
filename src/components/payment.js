@@ -13,12 +13,13 @@ export default class Payment extends React.Component {
         }).then((res) => {
             return res.json();
         }).then((json) => {
+            console.log(json);
             paypal.Button.render({
             env: "production",
-            commit: true,
+            //commit: true,
             style: {
               label: 'checkout', 
-              size:  'small',    
+              size:  'medium',    
               shape: 'pill',  
               color: 'blue'      
             },
