@@ -102,7 +102,7 @@ app.post("/views", (req, res) => {
 
 app.get("/render-music", (req, res) => {
     Music.find({}, (err, music) => {
-        res.json({data: music});
+        res.json({data: music.reverse()});
     })
 })
 
