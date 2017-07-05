@@ -80,7 +80,7 @@ export default class Footer extends React.Component {
               <h3 id="page-views">Page Views: <span className="views">{this.state.views}</span></h3>
               <div className="contact">
                 <h4 id="social">Social Media</h4>
-                <a href="https://www.instagram.com/officialdoublerr7/" target="_blank"><img className="icon" src="/static/images/instagram.png"/></a>
+                <img className="icon" src="/static/images/instagram.png"/>
                 <img className="icon" src="/static/images/twitter.png"/>
                 <img className="icon" src="/static/images/facebook.png"/>
                 <img className="icon" src="/static/images/youtube.png"/>
